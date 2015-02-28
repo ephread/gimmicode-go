@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf8'>
+    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='Give me Unicode.' name='description'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <title>Gimmicode</title>
+    <link href='/stylesheets/application.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <header>
+      <h1 class='title'>Gimmicode</h1>
+      <h2 class='subtitle'>Give me Unicode</h2>
+    </header>
+    <section class="input-area">
+      <header>
+        <h3>Just paste or type a character in the box below.</h3>
+      </header>
+      <input autocomplete='off' class='character-input' maxlength='1' name='character' type='text'>
+    </section>
+    <section class="unicode">
+      <div class="unicode-data"></div>
+    </section>
+    <footer>
+      <p class='actors'>
+        Powered by
+        <a href='http://redis.io/'>Redis</a>
+        &
+        <a href='https://golang.org/'>Go</a>.
+      </p>
+      <p class='maker'>
+        Made with love by
+        <a href='https://twitter.com/ephread'>@ephread</a>.
+      </p>
+    </footer>
+    <script src='/javascripts/application.js'></script>
+  </body>
+</html>
