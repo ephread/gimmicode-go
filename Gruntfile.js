@@ -19,7 +19,8 @@ module.exports = function(grunt) {
         },
         files: {
           'public/javascripts/application.js': [
-            'assets/javascripts/application.js',
+            'assets/javascripts/jquery-2.1.3.js',
+            'assets/javascripts/gimmicode.js'
           ] 
         }
       }

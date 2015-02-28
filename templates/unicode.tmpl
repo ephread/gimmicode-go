@@ -1,0 +1,58 @@
+<h5>U+{{ .Unicode }}</h5>
+<h6>
+  <span class="unicode-name">{{ .NewName }}</span>
+  <br />
+  {{if .OldName}}
+    <span class="unicode-name">({{ .OldName }})</span>
+  {{end}}
+</h6>
+<hr>
+<table class='character-codes'>
+  <thead>
+    <tr>
+      <th class='utf-8'>
+        <span class='code-type'>
+          UTF-8 code
+        </span>
+      </th>
+      <th class='windows'>
+        <span class='code-type'>
+          Windows Keystrokes
+        </span>
+      </th>
+      <th class='linux'>
+        <span class='code-type'>
+          Linux Keystrokes
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-title='UTF-8'>
+        \x{{ .Utf8Code }}
+      </td>
+      <td data-title='Windows'>
+        <ul>
+            {{if .Windows1252Code}}
+              <li>
+                  <span class="alt-alt">Alt</span>
+                  <span class="alt-code">{{ .Windows1252Code }}</span>
+              </li>
+            {{end}}
+            {{if .Unicode}}
+              <li>
+                  <span class="alt-alt">Alt</span>
+                  <span class="alt-code">+{{ .Unicode }}</span>
+              </li>
+            {{end}}
+        </ul>
+      </td>
+      <td data-title='Linux'>
+        <span class='alt-alt'>Ctrl</span>
+        <span class='alt-alt'>Shift</span>
+        <span class='alt-alt'>u{{ .Unicode }}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
