@@ -1,0 +1,8 @@
+@include keyframes(spin) {
+  from {
+    @include transform(rotate(0));
+  }
+  to {
+    @include transform(rotate(360deg));
+  }
+}
