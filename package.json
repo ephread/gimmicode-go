@@ -1,4 +1,8 @@
 {
+  "name": "gimmicode-go",
+  "version": "1.0.0",
+  "description": "Gimmicode: \"give me unicode\"",
+  "author": "Frédéric Maquin",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-uglify": "^0.6.0",
