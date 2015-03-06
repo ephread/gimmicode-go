@@ -1,72 +1,72 @@
 a {
-	color: $dark-blue;
-	text-decoration: none;
-	
-	border-bottom: 1px solid $dark-blue;
-	
-	@include transition-property(color, border-color);
-	@include transition-duration(.2s);
-	@include transition-timing-function(ease-in-out);
-	
-	&:visited {
-		color: $very-dark-blue;
-		border-bottom-color: $very-dark-blue;
-	}
-	
-	&:hover {
-		color: saturate(lighten($very-dark-blue, 55), 100);
-		border-bottom-color: saturate(lighten($very-dark-blue, 55), 100);
-	}
+  color: $dark-blue;
+  text-decoration: none;
+
+  border-bottom: 1px solid $dark-blue;
+
+  @include transition-property(color, border-color);
+  @include transition-duration(.2s);
+  @include transition-timing-function(ease-in-out);
+
+  &:visited {
+    color: $very-dark-blue;
+    border-bottom-color: $very-dark-blue;
+  }
+
+  &:hover {
+    color: saturate(lighten($very-dark-blue, 55), 100);
+    border-bottom-color: saturate(lighten($very-dark-blue, 55), 100);
+  }
 }
 
 h1 {
-	font-weight: lighter;
-	
-	text-align: center;
-	font-size: 4em;
-	color: white;
-	
-	margin: 0;
+  font-weight: lighter;
+
+  text-align: center;
+  font-size: 4em;
+  color: white;
+
+  margin: 0;
 }
 
 h2 {
-	font-weight: bold;
-	
-	text-align: center;
-	font-size: 1.5em;
-	color: white;
-	
-	text-transform: uppercase;
-	
-	margin-top: 0;
+  font-weight: bold;
+
+  text-align: center;
+  font-size: 1.5em;
+  color: white;
+
+  text-transform: uppercase;
+
+  margin-top: 0;
 }
 
 h5, h6 {
-	font-size: 2em;
-	color: white;
-	
-	text-align: center;
-	
-	@media only screen and (max-width: 800px) {
-		font-size: 1.5em
-	}
+  font-size: 2em;
+  color: white;
+
+  text-align: center;
+
+  @media only screen and (max-width: 800px) {
+    font-size: 1.5em
+  }
 }
 
 h5 {
-	margin-bottom: 1em;
-	margin-top: 2em;
+  margin-bottom: 1em;
+  margin-top: 2em;
 }
 
 h6 {
-	margin-top: 0;
-	margin-bottom: 1em;
+  margin-top: 0;
+  margin-bottom: 1em;
 }
 
 hr {
-	height: 1px;
-	border: 0;
-	background-color: white;
-	
-	width: 60%;
-	margin: 1em auto;
+  height: 1px;
+  border: 0;
+  background-color: white;
+
+  width: 60%;
+  margin: 1em auto;
 }

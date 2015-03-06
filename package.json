@@ -1,6 +1,6 @@
 {
   "name": "gimmicode-go",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gimmicode: \"give me unicode\"",
   "author": "Frédéric Maquin",
   "devDependencies": {

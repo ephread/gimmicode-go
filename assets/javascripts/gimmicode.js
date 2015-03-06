@@ -33,7 +33,7 @@ $(document).ready(function() {
 	}
 	
 	// Send the inputed character and request the data.
-	function postCharacter(event) {
+	function postCharacter() {
 	  var currentCharacter = $characterInput.val()
 		
 		var shouldPost = !lock && currentCharacter.length > 0 &&

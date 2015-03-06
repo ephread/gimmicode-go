@@ -23,17 +23,17 @@ import (
 const substituteCharacter = byte(0x1A)
 
 func ensureDatabasePresent(client *redis.Client) {
-	
+
 	seeded, err := client.Cmd("EXISTS", "seeded").Bool()
-	
+
 	if err != nil {
 		log.Fatal(err)
 	}
-	
+
 	if seeded {
 		return
 	}
-	
+
 	// Load up the official Unicode CSV-like data.
 	res, err := http.Get("http://unicode.org/Public/UNIDATA/UnicodeData.txt")
 	defer res.Body.Close()
@@ -41,7 +41,7 @@ func ensureDatabasePresent(client *redis.Client) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	
+
 	// Read each the names for each code point.
 	reader := csv.NewReader(res.Body)
 
@@ -61,7 +61,7 @@ func ensureDatabasePresent(client *redis.Client) {
 		client.Cmd("HSET", record[0], "unicode_new_name", record[1])
 		client.Cmd("HSET", record[0], "unicode_old_name", record[10])
 	}
-	
+
 	client.Cmd("SET", "seeded", "true")
 }
 
@@ -71,12 +71,12 @@ func getUnpackedWindows1252(char []byte) (code string) {
 	i := bytes.NewReader(char)
 	o := transform.NewReader(i, charmap.Windows1252.NewEncoder())
 	enc, error := ioutil.ReadAll(o)
-	
+
 	if error != nil {
 		log.Println("Impossible to convert %s", char)
 		return
 	}
-	
+
 	// If the converted character is invalid we simply return an empty string.
 	// Not that we check whether the substitute character was imputed (which
 	// should never happen) or was the result of Unicode character
@@ -85,7 +85,7 @@ func getUnpackedWindows1252(char []byte) (code string) {
 		log.Printf("%s was invalid.", char)
 		return
 	}
-	
+
 	// Converts the byte into alt code.
 	code = fmt.Sprintf("0%d", enc[0])
 	return
@@ -117,7 +117,7 @@ func main() {
 	}
 	client.Cmd("SELECT", "2")
 	defer client.Close()
-	
+
 	ensureDatabasePresent(client)
 
 	m := martini.Classic()
@@ -133,10 +133,10 @@ func main() {
 		char := req.URL.Query().Get("character")
 		rune, _ := utf8.DecodeRuneInString(char)
 		codePoint := fmt.Sprintf("%04X", rune)
-		
+
 		// Retrieve unicode names from the redis store.
 		oldName, newName := getNamesFromRedis(client, codePoint)
-		
+
 		// Windows alt-codes
 		utf8Code := getUnpackedUtf8([]byte(char))
 		windows1252Code := getUnpackedWindows1252([]byte(char))
